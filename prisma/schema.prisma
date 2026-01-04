@@ -9,12 +9,43 @@ datasource db {
 
 model User {
   id        Int      @id @default(autoincrement())
-  email     String  @unique
+  email     String   @unique
+  password  String
   firstName String
   lastName  String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   entries   Entry[]
+  habitLogs HabitLog[]
+  image     String?
+  accounts  Account[] 
+  sessions  Session[] 
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            Int
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       Int
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Entry {
@@ -24,4 +55,14 @@ model Entry {
   updatedAt DateTime @updatedAt
   userId    Int
   user      User     @relation(fields: [userId], references: [id])
+}
+
+model HabitLog {
+  id         String   @id @default(cuid())
+  userId     Int
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  dateString String   // Format: "YYYY-MM-DD"
+  createdAt  DateTime @default(now())
+
+  @@unique([userId, dateString]) // Ensures only one log per day per user
 }
