@@ -112,7 +112,7 @@ export default function EntryModal() {
                   autoFocus
                   value={singleWeight}
                   onChange={(e) => setSingleWeight(e.target.value)}
-                  placeholder="Current Weight"
+                  placeholder="0.0"
                   className="w-full p-10 bg-zinc-50 border-none rounded-[2.5rem] font-black text-4xl outline-none text-center focus:ring-4 ring-indigo-500/10 transition-all"
                 />
                 <span className="absolute right-20 top-1/2 -translate-y-1/2 font-black text-zinc-400 text-2xl uppercase">kg</span>
