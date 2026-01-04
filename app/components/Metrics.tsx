@@ -39,7 +39,7 @@ export default function Metrics() {
       className="grid grid-cols-1 md:grid-cols-3 gap-6"
     >
       {/* Weight Status: Adjusted padding and flex for editorial look */}
-      <motion.div variants={item} className="bg-white p-8 rounded-[3rem] shadow-sm border border-zinc-200/50 relative overflow-hidden group flex flex-col justify-between min-h-[160px]">
+      <motion.div className="bg-white p-8 rounded-[3rem] shadow-sm border border-zinc-200/50 relative overflow-hidden group flex flex-col justify-between min-h-[160px]">
         <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-50/40 rounded-full -mr-8 -mt-8 transition-transform group-hover:scale-110" />
         <span className="text-zinc-400 text-[10px] font-black uppercase tracking-[0.2em] relative z-10">Weight Status</span>
         <div className="relative z-10 flex items-baseline">
@@ -51,7 +51,7 @@ export default function Metrics() {
       </motion.div>
 
       {/* Rate of Change: Added whitespace-nowrap to prevent text wrapping */}
-      <motion.div variants={item} className="bg-white p-8 rounded-[3rem] shadow-sm border border-zinc-200/50 flex items-center justify-between group min-h-[160px]">
+      <motion.div className="bg-white p-8 rounded-[3rem] shadow-sm border border-zinc-200/50 flex items-center justify-between group min-h-[160px]">
         <div className="flex flex-col whitespace-nowrap">
           <p className="font-black text-lg text-zinc-900 tracking-tight leading-none">Rate of</p>
           <p className="font-black text-lg text-zinc-400 tracking-tight leading-none mt-1">Change</p>
@@ -63,7 +63,7 @@ export default function Metrics() {
       </motion.div>
 
       {/* Min Weight: Consistent sizing with other cards */}
-      <motion.div variants={item} className="bg-white p-8 rounded-[3rem] shadow-sm border border-zinc-200/50 flex items-center justify-between group min-h-[160px]">
+      <motion.div className="bg-white p-8 rounded-[3rem] shadow-sm border border-zinc-200/50 flex items-center justify-between group min-h-[160px]">
         <div className="flex flex-col whitespace-nowrap">
           <p className="font-black text-lg text-zinc-400 tracking-tight leading-none">Min</p>
           <p className="font-black text-lg text-zinc-900 tracking-tight leading-none mt-1">Weight</p>
